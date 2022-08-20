@@ -6,13 +6,15 @@ const app =express();
 
 app.use(cors());
 app.use(express.json())
-
+app.use(express.urlencoded({extended:true}));// BI THIEU CHO NAY LA SAI
 
 app.get("/",(req,res)=>{
-    res.json({message:"Welcome   to contact book application"})
+    res.json({message:"Welcome to contact book application"})
 
 })
+
 app.use("/api/contacts", contactsRouter);
+
 
 app.use((req, res, next) => {
     // Code ở đây sẽ chạy khi không có route được định nghĩa nào
